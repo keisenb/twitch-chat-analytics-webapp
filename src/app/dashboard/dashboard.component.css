@@ -1,0 +1,79 @@
+body {
+    background-color:#F6F8FA;
+    font-size:.875em;
+    overflow-x:hidden;
+    color:#353c4e;
+    font-family:"Open Sans",sans-serif;
+    background-attachment:fixed
+}
+
+
+.bg-c-yellow {
+    background: linear-gradient(to right, #fe9365, #feb798);
+}
+
+.update-card {
+    color: #fff;
+    margin: 0.2em;
+}
+
+
+.card-block {
+    padding: 1.25rem;
+}
+
+.update-card .card-footer {
+    background-color: transparent;
+    border-top: 1px solid #fff;
+}
+
+.bg-c-green {
+    background: linear-gradient(to right, #0ac282, #0df3a3);
+}
+
+.bg-c-pink {
+    background: linear-gradient(to right, #fe5d70, #fe909d);
+}
+
+.bg-c-lite-green {
+    background: linear-gradient(to right, #01a9ac, #01dbdf);
+}
+
+.card {
+    border-radius: 5px;
+    -webkit-box-shadow: 0 1px 20px 0 rgba(69,90,100,0.08);
+    box-shadow: 0 1px 20px 0 rgba(69,90,100,0.08);
+    border: none;
+    margin-bottom: 30px;
+}
+
+.welcome-section {
+    height: 2em;
+}
+
+.footer-section {
+    padding-top: 5em;
+}
+
+.chart-box {
+    border-radius: 5px;
+    -webkit-box-shadow: 0 1px 20px 0 rgba(69,90,100,0.08);
+    box-shadow: 0 1px 20px 0 rgba(69,90,100,0.08);
+    border: none;
+    margin-bottom: 30px;
+    background-color: white;
+}
+
+.chart {
+    padding: 2em;
+}
+
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-width : 320px) and (max-width : 480px) {
+    /* Styles */
+    .chart {
+        padding: 0.3em;
+    }
+}
+    
