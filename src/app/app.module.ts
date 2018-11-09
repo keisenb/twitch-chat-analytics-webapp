@@ -15,6 +15,7 @@ import { routing } from './app.routing';
 import { IndexComponent } from './index/index.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FeaturesComponent } from './features/features.component';
+import { CallbackComponent } from './callback/callback.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { FeaturesComponent } from './features/features.component';
     IndexComponent,
     NavbarComponent,
     FeaturesComponent,
+    CallbackComponent,
   ],
   imports: [
     BrowserModule,

@@ -16,8 +16,9 @@
               <a class="nav-link" href="https://medium.com/@keisenb" target="_blank">Blog</a>
           </li>
       </ul>
-      <span class="navbar-text">
-          Login
-      </span>
+
+    <button *ngIf="!isAuthenticated()" class="btn btn-sm btn-outline-light my-2 my-sm-0" type="button" (click)="auth.login()">Login</button>
+    <button *ngIf="isAuthenticated()" class="btn btn-sm btn-outline-light my-2 my-sm-0" type="button" (click)="auth.logout()">Logout</button>
+
   </div>
 </nav>

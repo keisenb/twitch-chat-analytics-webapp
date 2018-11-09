@@ -4,7 +4,10 @@
 
 export const environment = {
   production: false,
-  api: 'https://twitch-chat-analytics-api.herokuapp.com'
+  api: 'http://localhost:3000',
+  auth0ClientId: '765PW0QKG2TuyrIb7r85gpzn23sT6u8g',
+  auth0Domain: 'twitch-chat-analytics.auth0.com',
+  auth0RedirectUri: 'http://localhost:4200/callback'
 };
 
 /*
