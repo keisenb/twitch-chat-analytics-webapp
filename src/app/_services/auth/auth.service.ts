@@ -16,7 +16,8 @@ export class AuthService {
     domain: environment.auth0Domain,
     responseType: 'token id_token',
     redirectUri: environment.auth0RedirectUri,
-    scope: 'openid'
+    scope: 'openid',
+    audience: 'https://api.analytics.keisenb.io'
   });
 
   constructor(public router: Router) {}
@@ -60,5 +61,9 @@ export class AuthService {
     // Access Token's expiry time
     const expiresAt = JSON.parse(localStorage.getItem('expires_at') || '{}');
     return new Date().getTime() < expiresAt;
+  }
+
+  public accessToken(): string {
+    return localStorage.getItem('access_token');
   }
 }

@@ -7,6 +7,10 @@ body {
     background-attachment:fixed
 }
 
+.white-spinner::ng-deep circle {
+    stroke: white;
+  }
+
 
 .bg-c-yellow {
     background: linear-gradient(to right, #fe9365, #feb798);

@@ -28,7 +28,10 @@ export class DashboardComponent implements OnInit, OnDestroy {
   topUsersChart: Chart;
   cardCharts: Array<Chart>;
 
-
+  loadingTotalMessages: boolean;
+  loadingTotalUsers: boolean;
+  loadingViewers: boolean;
+  loadingChatters: boolean;
 
   constructor(
     private messageService: MessageService,
@@ -38,6 +41,10 @@ export class DashboardComponent implements OnInit, OnDestroy {
     this.topMessagesChart = new Chart();
     this.topUsersChart = new Chart();
     this.cardCharts = new Array<Chart>();
+    this.loadingChatters = true;
+    this.loadingTotalMessages = true;
+    this.loadingTotalUsers = true;
+    this.loadingViewers = true;
   }
 
   ngOnInit() {
@@ -92,20 +99,26 @@ export class DashboardComponent implements OnInit, OnDestroy {
   }
 
   private initializeCards(): void {
-    const usernameCount$ = this.userService.UsernameCount();
+    const userCount$ = this.userService.UsernameCount();
     const messageCount$ = this.messageService.MessageCount();
     const chatterCount$ = this.chatterService.CurrentChatters('timthetatman');
 
-    forkJoin([usernameCount$, messageCount$, chatterCount$])
-      .subscribe(res => {
-        this.totalUsers = res[0].users;
-        this.totalMessages = res[1].count;
-        this.chatterCount = res[2].chatter_count;
-      }, err => {
-        console.log('unable to refresh cards');
-      });
+    userCount$.subscribe(res => {
+      this.loadingTotalUsers = false;
+      this.totalUsers = res.users;
+    });
 
-    this.userCountSubscription = this.setInterval(usernameCount$, 3000).subscribe(next => {
+    messageCount$.subscribe(res => {
+      this.loadingTotalMessages = false;
+      this.totalMessages = res.count;
+    });
+
+    chatterCount$.subscribe(res => {
+      this.loadingChatters = false;
+      this.chatterCount = res.chatter_count;
+    });
+
+    this.userCountSubscription = this.setInterval(userCount$, 3000).subscribe(next => {
       this.totalUsers = next.users;
     });
 
